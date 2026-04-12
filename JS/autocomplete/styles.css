@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 18px;
+    border: 2px solid #fda085;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.input:focus {
+    border-color: #f6d365;
+}
+
+.autocomplete-container {
+    position: relative;
+    width: 480px;
+    max-width: 95vw;
+    margin-bottom: 24px;
+}
+
+#autocomplete-input {
+    width: 100%;
+    min-width: 0;
+}
+
+#suggestions-list {
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border: 1px solid #fda085;
+    border-top: none;
+    background: #fff;
+    max-height: 180px;
+    overflow-y: auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-radius: 0 0 8px 8px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestion-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
+.suggestion-item:hover, .suggestion-item.active {
+    background: #fda085;
+    color: #fff;
+    padding-left: 28px;
+}
+
+@media (max-width: 400px) {
+    .input, ul {
+        width: 95vw;
+    }
+}
