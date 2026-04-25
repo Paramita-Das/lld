@@ -1,0 +1,35 @@
+.bar-outer {
+    width: 50px;
+    height: 300px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: #f5f5f5;
+    margin: 0 16px 0 0;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.bar-inner {
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    transition: height 0.3s;
+}
+
+.voting-poll {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px
+}
