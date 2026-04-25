@@ -1,5 +1,5 @@
 import './App.css';
-import Autocomplete from './components/autocomplete';
+import Autocomplete from './components/autocomplete/autocomplete';
 import fruits from './mocks/fruits.json';
 
 function App() {
