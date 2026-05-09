@@ -1,4 +1,12 @@
 {
+  "name": "lld-practice-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix ReactJs/my-react-app run dev",
+    "build": "npm --prefix ReactJs/my-react-app run build",
+    "lint": "npm --prefix ReactJs/my-react-app run lint",
+    "preview": "npm --prefix ReactJs/my-react-app run preview"
+  },
   "devDependencies": {
     "@types/react": "^19.2.14"
   }
