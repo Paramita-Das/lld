@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "npm --prefix ReactJs/my-react-app run dev",
+    "dev:react": "npm --prefix ReactJs/my-react-app run dev",
+    "dev:js": "python3 -m http.server 4173 --directory JS/app",
     "build": "npm --prefix ReactJs/my-react-app run build",
     "lint": "npm --prefix ReactJs/my-react-app run lint",
     "preview": "npm --prefix ReactJs/my-react-app run preview"

@@ -1,0 +1,7 @@
+.placeholder-problem {
+  max-width: 540px;
+  border: 1px dashed rgba(108, 236, 255, 0.18);
+  border-radius: 18px;
+  padding: 20px;
+  background: rgba(8, 22, 33, 0.55);
+}

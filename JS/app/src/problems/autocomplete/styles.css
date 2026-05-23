@@ -1,0 +1,67 @@
+.autocomplete-problem {
+  max-width: 540px;
+}
+
+.autocomplete-problem .problem-example-header h3 {
+  margin-bottom: 8px;
+}
+
+.autocomplete-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(108, 236, 255, 0.22);
+  border-radius: 14px;
+  background: rgba(9, 22, 33, 0.94);
+  color: #eefcff;
+  outline: none;
+}
+
+.autocomplete-input:focus {
+  border-color: rgba(108, 236, 255, 0.72);
+  box-shadow: 0 0 0 4px rgba(32, 186, 255, 0.14);
+}
+
+.suggestions-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border: 1px solid rgba(108, 236, 255, 0.16);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(9, 22, 33, 0.98);
+}
+
+.suggestion-item,
+.suggestion-empty {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.suggestion-item {
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.suggestion-item + .suggestion-item,
+.suggestion-empty {
+  border-top: 1px solid rgba(108, 236, 255, 0.08);
+}
+
+.suggestion-item:hover {
+  background: rgba(0, 224, 197, 0.12);
+}
+
+.suggestion-name {
+  color: #eefcff;
+  font-weight: 600;
+}
+
+.suggestion-meta {
+  color: #86a8b5;
+}
+
+.suggestion-empty {
+  color: #86a8b5;
+}

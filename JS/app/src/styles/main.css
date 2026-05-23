@@ -1,0 +1,345 @@
+:root {
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #d8edf3;
+  background:
+    radial-gradient(circle at top left, rgba(0, 224, 197, 0.16), transparent 26%),
+    radial-gradient(circle at top right, rgba(53, 109, 255, 0.18), transparent 22%),
+    linear-gradient(180deg, #08141f 0%, #0e1b29 52%, #101826 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+#app {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 24px 48px;
+}
+
+.hero-panel,
+.problem-list-panel,
+.preview-panel {
+  background: rgba(8, 20, 31, 0.82);
+  border: 1px solid rgba(87, 215, 255, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 22px 50px rgba(0, 8, 18, 0.38);
+  backdrop-filter: blur(12px);
+}
+
+.hero-panel {
+  padding: 28px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0 42%, rgba(0, 224, 197, 0.08) 60%, transparent 76%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
+  color: #f3fbff;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: #7fe9da;
+  font-weight: 700;
+}
+
+.hero-copy {
+  max-width: 760px;
+  margin: 0;
+  color: #9eb8c4;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(13, 31, 45, 0.92) 0%, rgba(11, 24, 36, 0.96) 100%);
+  border: 1px solid rgba(87, 215, 255, 0.12);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4fcff;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 6px;
+  color: #87a8b5;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.problem-list-panel,
+.preview-panel {
+  padding: 24px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.panel-heading h2,
+.problem-card h3,
+.empty-state h3 {
+  margin: 0;
+  color: #f0fbff;
+}
+
+.panel-heading p,
+.problem-card p,
+.problem-summary,
+.empty-state p,
+.problem-example-copy {
+  color: #90acb8;
+}
+
+.problem-index,
+.problem-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-index {
+  gap: 18px;
+}
+
+.problem-group {
+  padding: 16px;
+  border: 1px solid rgba(87, 215, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(14, 29, 43, 0.72);
+}
+
+.problem-group-header {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.problem-group-header h3,
+.problem-group-header p {
+  margin: 0;
+}
+
+.problem-group-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.problem-group-header p {
+  color: #79a0af;
+  font-size: 0.92rem;
+}
+
+.problem-list {
+  gap: 14px;
+}
+
+.problem-card {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid rgba(87, 215, 255, 0.14);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(15, 34, 49, 0.96), rgba(10, 24, 36, 0.98));
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.problem-card:hover,
+.problem-card-active {
+  transform: translateY(-1px);
+  border-color: rgba(108, 236, 255, 0.58);
+  box-shadow: 0 14px 30px rgba(0, 14, 26, 0.4);
+}
+
+.problem-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.status-pill,
+.difficulty-badge,
+.focus-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.status-pill {
+  padding: 6px 10px;
+}
+
+.status-done {
+  background: rgba(30, 202, 156, 0.18);
+  color: #73f3ca;
+}
+
+.status-in-progress {
+  background: rgba(255, 184, 77, 0.18);
+  color: #ffd18a;
+}
+
+.status-planned {
+  background: rgba(120, 138, 255, 0.18);
+  color: #c8d1ff;
+}
+
+.difficulty-badge {
+  padding: 7px 12px;
+  background: rgba(223, 242, 255, 0.08);
+  color: #c8e6ef;
+  border: 1px solid rgba(117, 202, 230, 0.16);
+}
+
+.problem-summary {
+  text-align: left;
+  margin: 0;
+}
+
+.focus-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.focus-chip {
+  padding: 8px 12px;
+  background: rgba(0, 224, 197, 0.1);
+  color: #8df0dd;
+  border: 1px solid rgba(0, 224, 197, 0.14);
+}
+
+.problem-sandbox {
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px dashed rgba(87, 215, 255, 0.22);
+  background:
+    radial-gradient(circle at top right, rgba(0, 224, 197, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(12, 28, 41, 0.96), rgba(9, 21, 31, 0.98));
+}
+
+.problem-example {
+  max-width: 540px;
+}
+
+.problem-example-header h3 {
+  margin-bottom: 8px;
+}
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .app-shell {
+    padding: 20px 16px 32px;
+  }
+
+  .hero-stats,
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-panel,
+  .problem-list-panel,
+  .preview-panel,
+  .problem-sandbox {
+    padding: 18px;
+  }
+
+  .panel-heading,
+  .problem-card-header,
+  .problem-group-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
