@@ -7,6 +7,7 @@ import fruits from '../mocks/fruits.json';
 import type { PracticeProblem } from '../types/problem';
 import Stopwatch from '../components/stopwatch/stopwatch';
 import CircleGame from '../components/circle-game/circle-game';
+import Pagination from '../components/pagination/pagination';
 
 const fruitNames = fruits.map((fruit) => fruit.name);
 
@@ -84,13 +85,22 @@ export const practiceProblems: PracticeProblem[] = [
     focusAreas: ['state management', 'timing', 'UI updates'],
         component: () => <Stopwatch />,
   },
-   {
+  {
     id: 'circle-game',
     title: 'Circle Game',
-    status: 'In Progress',
+    status: 'Ready',
     difficulty: 'Medium',
     summary: 'Implement a circle game with click detection and scoring.',
     focusAreas: ['state management', 'event handling', 'UI updates'],
     component: () => <CircleGame />,
+  },
+  {
+    id: 'pagination',
+    title: 'Pagination',
+    status: 'In Progress',
+    difficulty: 'Medium',
+    summary: 'Build a pagination component with page navigation and item slicing.',
+    focusAreas: ['state management', 'page calculation', 'UI updates'],
+    component: () => <Pagination />,
   },
 ];

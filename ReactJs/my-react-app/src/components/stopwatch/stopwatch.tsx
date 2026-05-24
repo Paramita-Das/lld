@@ -3,7 +3,7 @@ import {useRef, useState} from 'react';
 const Stopwatch = () => {
 const [timer, setTimer] = useState(0);
 const [timerStarted, setTimerStarted] = useState(false);
-const intervalId = useRef(null);
+const intervalId = useRef<number | null>(null);
 const [pauseCounter, setPauseCounter] = useState(0);
 
 const startTimer = () => {
@@ -19,13 +19,17 @@ const resetTimer = () => {
 
 const onClickPause = () => { 
     if(timerStarted) {
-          clearInterval(intervalId.current);
+          if (intervalId.current !== null) {
+            clearInterval(intervalId.current);
+          }
             setTimerStarted(false);
             setPauseCounter((prev) => prev + 1);
     }
 }
 const stopTimer = () => {
-    clearInterval(intervalId.current);
+    if (intervalId.current !== null) {
+      clearInterval(intervalId.current);
+    }
     setTimer(0);
     setTimerStarted(false);
 };

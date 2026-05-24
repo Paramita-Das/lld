@@ -1,0 +1,21 @@
+.pagination-problem {
+  max-width: 540px;
+  margin: 80px auto;
+  padding: 24px;
+  border: 1px dashed rgba(93, 72, 43, 0.2);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+.product-card {
+  border: 1px solid black;
+  margin: 16px;
+  border-radius: 12px;
+}
+.page-button {
+  cursor: pointer;
+  padding: 8px 16px;
+  matgin: 4px;
+  border: 1px solid #fda085;
+  border-radius: 8px;
+}
