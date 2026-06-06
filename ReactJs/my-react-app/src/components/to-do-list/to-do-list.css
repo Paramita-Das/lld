@@ -1,0 +1,15 @@
+.task-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 6px
+}
+.add-btn {
+    cursor: pointer;
+}
+.input-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-bottom: 16px
+}

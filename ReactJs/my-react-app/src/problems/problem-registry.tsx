@@ -8,6 +8,8 @@ import type { PracticeProblem } from '../types/problem';
 import Stopwatch from '../components/stopwatch/stopwatch';
 import CircleGame from '../components/circle-game/circle-game';
 import Pagination from '../components/pagination/pagination';
+import FileExplorer from '../components/file-explorer/file-explorer';
+import ToDoList from '../components/to-do-list/to-do-list';
 
 const fruitNames = fruits.map((fruit) => fruit.name);
 
@@ -97,10 +99,28 @@ export const practiceProblems: PracticeProblem[] = [
   {
     id: 'pagination',
     title: 'Pagination',
-    status: 'In Progress',
+    status: 'Ready',
     difficulty: 'Medium',
     summary: 'Build a pagination component with page navigation and item slicing.',
     focusAreas: ['state management', 'page calculation', 'UI updates'],
     component: () => <Pagination />,
+  },
+   {
+    id: 'file-explorer',
+    title: 'File Explorer',
+    status: 'In Progress',
+    difficulty: 'Medium',
+    summary: 'Navigate and manage files in a virtual file system.',
+    focusAreas: ['file management', 'UI layout', 'drag and drop'],
+    component: () => <FileExplorer />,
+  },
+   {
+    id: 'to-do-list',
+    title: 'To Do List',
+    status: 'In Progress',
+    difficulty: 'Medium',
+    summary: 'Manage tasks with features like adding, removing, and editing items.',
+    focusAreas: ['state management', 'CRUD operations', 'UI updates'],
+    component: () => <ToDoList />,
   },
 ];

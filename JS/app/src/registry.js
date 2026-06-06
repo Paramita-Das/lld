@@ -3,6 +3,7 @@ import { renderCircleGame } from './problems/circle-game/index.js';
 import { renderMemoryGame } from './problems/memory-game/index.js';
 import { renderMultiSelectDropdown } from './problems/multi-select-dropdown/index.js';
 import { renderOtpInput } from './problems/otp-input/index.js';
+import { renderPagination } from './problems/pagination/index.js';
 import { renderSnakeAndLadder } from './problems/snake-and-ladder/index.js';
 import { renderStopwatch } from './problems/stopwatch/index.js';
 import { renderVotingPoll } from './problems/voting-poll/index.js';
@@ -100,5 +101,14 @@ export const problems = [
     summary: 'Implement a circle game with click detection and scoring.',
     focusAreas: ['state management', 'event handling', 'UI updates'],
     render: renderCircleGame,
+  },
+  {
+    id: 'pagination',
+    title: 'Pagination',
+    difficulty: 'Easy',
+    status: 'planned',
+    summary: 'Build a pagination component with page navigation and item slicing.',
+    focusAreas: ['state management', 'page calculation', 'UI updates'],
+    render: renderPagination,
   },
 ];

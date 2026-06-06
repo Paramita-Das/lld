@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './autocomplete.css';
 
 interface AutocompleteItem {
@@ -11,9 +11,21 @@ interface AutocompleteProps {
   data: AutocompleteItem[];
 }
 
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(timerId);
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 const Autocomplete = ({ data }: AutocompleteProps) => {
   const [inputValue, setInputValue] = useState('');
   const [searchResults, setSearchResults] = useState<AutocompleteItem[]>([]);
+  const debouncedInput = useDebounce(inputValue, 1000);
 
   const onSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
@@ -29,6 +41,7 @@ const Autocomplete = ({ data }: AutocompleteProps) => {
     }
   };
 
+
   const onClickItem = (fruit: AutocompleteItem) => {
     setInputValue(fruit.name);
     setSearchResults([]);
@@ -39,7 +52,12 @@ const Autocomplete = ({ data }: AutocompleteProps) => {
 
   return (
     <div>
-      <input type="text" placeholder="Search..." onChange={onSearchInput} value={inputValue} />
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={e => setInputValue(e.target.value)}
+        value={inputValue}
+      />
       <ul>
         {searchResults.map((fruit) => (
           <li key={fruit.name} onClick={() => onClickItem(fruit)} className="list-item">
