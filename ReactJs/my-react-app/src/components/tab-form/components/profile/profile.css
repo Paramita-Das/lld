@@ -1,0 +1,21 @@
+.profile-form {
+    display: flex;;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.profile-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    display: flex;
+    justify-content: flex-end;
+}

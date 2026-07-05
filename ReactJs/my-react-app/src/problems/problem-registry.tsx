@@ -10,6 +10,10 @@ import CircleGame from '../components/circle-game/circle-game';
 import Pagination from '../components/pagination/pagination';
 import FileExplorer from '../components/file-explorer/file-explorer';
 import ToDoList from '../components/to-do-list/to-do-list';
+import TabForm from '../components/tab-form/tab-form';
+import MultiAccordion from '../components/accordion/multi-accordion';
+import Chat from '../components/chat-app/chat-app';
+import Carousel from '../components/carousel/carousel';
 
 const fruitNames = fruits.map((fruit) => fruit.name);
 
@@ -117,10 +121,46 @@ export const practiceProblems: PracticeProblem[] = [
    {
     id: 'to-do-list',
     title: 'To Do List',
-    status: 'In Progress',
+    status: 'Ready',
     difficulty: 'Medium',
     summary: 'Manage tasks with features like adding, removing, and editing items.',
     focusAreas: ['state management', 'CRUD operations', 'UI updates'],
     component: () => <ToDoList />,
+  },
+   {
+    id: 'tabs',
+    title: 'Tabs',
+    status: 'In Progress',
+    difficulty: 'Medium',
+    summary: 'Implement a tabbed interface for organizing content.',
+    focusAreas: ['state management', 'UI layout', 'accessibility'],
+    component: () => <TabForm />,
+  },
+   {
+    id: 'accordion',
+    title: 'Accordion',
+    status: 'In Progress',
+    difficulty: 'Medium',
+    summary: 'Implement a accordion interface for showing content.',
+    focusAreas: ['state management', 'UI layout', 'Lifting Up State'],
+    component: () => <MultiAccordion />,
+  },
+   {
+    id: 'chat',
+    title: 'Chat',
+    status: 'In Progress',
+    difficulty: 'Medium',
+    summary: 'Implement a chat interface for real-time messaging.',
+    focusAreas: ['state management', 'UI layout', 'Lifting Up State'],
+    component: () => <Chat />,
+  },
+   {
+    id: 'carousel',
+    title: 'Carousel',
+    status: 'In Progress',
+    difficulty: 'Easy',
+    summary: 'Implement a carousel component for displaying images.',
+    focusAreas: ['state management', 'UI layout', 'Lifting Up State'],
+    component: () => <Carousel />,
   },
 ];

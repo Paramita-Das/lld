@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./file-explorer.css";
 
 const dataJson = [
     {
@@ -46,20 +47,13 @@ const dataJson = [
     }
 ];
 
-const SingleFile = ({item, level}) => {
+const SingleFile = ({item, level, onClickAddFolder, onClickAddFile}, ) => {
     const [isFolderOpen, setIsFolderOpen] = useState(false);
-    const onClickFolder = () => {
-        setIsFolderOpen(!isFolderOpen);
-    }
+  const onClickFolder = () => {
+    setIsFolderOpen((prev) => !prev)
+  }
 
-    const onClickAddFolder = () => {
-        // Implement add folder logic
-    }
-    const onClickAddFile = () => {
-        // Implement add file logic
-                        <SingleFile key={index} item={child} level={level + 1} />
-
-    }
+    
     return (
         <div style={{ marginLeft: level * 20 }} >
             {item.isFolder && <span onClick={onClickFolder} className="folder-item">{isFolderOpen ? '-' : '+'}</span>}
@@ -67,13 +61,13 @@ const SingleFile = ({item, level}) => {
                 {item.isFolder ? "📁" : "📄"} {item.name}
                 {item.isFolder && (
                     <>
-                        <button style={{ marginLeft: 8 }} onClick={() => onClickAddFolder}>Add folder</button>
-                        <button style={{ marginLeft: 4 }} onClick={() => onClickAddFile}>Add file</button>
+                        <button style={{ marginLeft: 8 }} onClick={onClickAddFolder}>Add folder</button>
+                        <button style={{ marginLeft: 4 }} onClick={onClickAddFile}>Add file</button>
                     </>
                 )}
             </span>
             {isFolderOpen && item.isFolder && item.children && item.children.map((child, index) => (
-                <SingleFile key={index} item={child} level={level + 1} />
+                <SingleFile key={index} item={child} level={level + 1} onClickAddFolder={() => {}} onClickAddFile={() => {}}/>
             ))}
         </div>
     );
@@ -81,19 +75,17 @@ const SingleFile = ({item, level}) => {
 
 
 
+
 const FileExplorer = () => {
     const [ data, setData ] = useState(dataJson);
+    const renderFileTree = (data, level) => {
+        return <SingleFile item={data} level={level} onClickAddFolder={() => {}} onClickAddFile={() => {}}/>
+    }
 
-    const renderFileTree = (data, level = 0) => {
-    return data.map((item, index) => (
-       <SingleFile key={index} item={item} level={level} />
-    ));
-};
       return (
     <div className="file-explorer">
       <h2>File Explorer</h2>
-      {/* Implement file navigation and management UI here */}
-      {renderFileTree(data)}
+      {data.map((item) => renderFileTree(item, 0))}
     </div>
   );
 };
